@@ -1,1 +1,115 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+
+
+
+
+
+$main-text-color:#454C66;
+$small-text-color:#747A88;
+$background-color:#F5F6F9;
+$blue-color:#3482F4;
+$btns-color:#635CA8;
+$error-color:#F3446C;
+$placeholder-color:#B7BEC9;
+ng-select{
+  position: relative;
+  .ng-select.ng-select-single .ng-select-container{
+position: absolute;
+top: 0;
+left: 0;
+bottom: 0;
+right: 0;
+  }
+}
+.errorclass{
+  color: $error-color;
+  font-size: 12px;
+  font-weight: 600;
+
+}
+@mixin paragraphstyle($width,$opcity,$font){
+  color: $small-text-color;
+  width:$width;
+  margin-top: 1rem;
+  font-size: $font;
+}
+@mixin inputFeild($margin,$height,$radus, $border,$width,$focus, $padding) {
+  margin-top:$margin; //5px
+  border: $border solid #D0D5DE;
+  border-radius:$radus;
+  height: $height; //40px
+  padding: 0 $padding;
+  font-size: 13px;
+  width: $width;
+  &::placeholder{
+
+    font-size: 10px;
+    color: $placeholder-color;
+    text-align: left;
+  }
+  &:focus{
+    outline: none !important;
+  border:$focus solid #B4ACE5;
+  background-color: transparent !important;
+  }
+  &:focus::placeholder{
+    display: none;
+  }
+
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 9999s ease-in-out 0s;
+}
+.form-group{
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  label{
+    color: $main-text-color;
+    // font-weight: 600;
+    opacity: 1;
+    font-size: 13px;
+  }
+  input{
+
+}
+}
+.styleimage{
+  width: 1rem;
+  height: 1rem;
+  cursor: pointer;
+}
+body{
+  background-color: $background-color;
+  font-family: 'Poppins', sans-serif;
+
+}
+.btn-style{
+  background-color: $btns-color;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  padding: .7rem 1rem;
+  gap: 3rem;}
+.main-text  {
+  color: $main-text-color;
+  font-weight: bold;
+  font-size: 20px;
+  // font: normal normal 600 24px/24px Poppins;
+
+}
+.small-text {
+  @include paragraphstyle(22rem, 1,13px);
+}
+.other-small-text{
+  @include paragraphstyle(unset,1,11px);
+  padding: 0 2rem;
+}

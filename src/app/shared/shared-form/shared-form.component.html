@@ -1,0 +1,246 @@
+<div class="start-form">
+  <form [formGroup]="createbusiness" (ngSubmit)="onSubmit()">
+    <div class="row" *ngIf="!choosetype">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="first-name">First Name</label>
+          <!-- [ngStyle]="styleOne?{'background-color': 'red'} : {'background-color': 'blue'}" -->
+          <input
+          [ngStyle]="f.firstname?.errors?.pattern ? {'border':'1px solid #F3446C'} : {'border':'1px solid #D0D5DE'}"
+            class="inputclass"
+            type="text"
+            id="first-name"
+            formControlName="firstname"
+            onfocus="this.placeholder = ''"
+            placeholder="Enter your first name"
+          />
+
+            <!-- <div *ngIf="f.firstname?.errors?.required">Number is required.</div> -->
+            <div class="errorclass" *ngIf="f.firstname?.errors?.pattern">Please enter letters only</div>
+
+        </div>
+
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="last-name">Last Name</label>
+          <input
+          [ngStyle]="f.lastname?.errors?.pattern ? {'border':'1px solid #F3446C'} : {'border':'1px solid #D0D5DE'}"
+            type="text"
+            class="inputclass"
+            id="last-name"
+            formControlName="lastname"
+            placeholder="Enter your last name"
+            onfocus="this.placeholder = ''"
+          />
+          <div class="errorclass" *ngIf="f.lastname?.errors?.pattern">Please enter letters only</div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="!choosetype">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+          [ngStyle]="f.email?.errors?.email ? {'border':'1px solid #F3446C'} : {'border':'1px solid #D0D5DE'}"
+            class="inputclass"
+            type="email"
+            id="email"
+            formControlName="email"
+            placeholder="Enter your email"
+            onfocus="this.placeholder = ''"
+          />
+          <div class="errorclass" *ngIf="f.email?.errors?.email">Please enter a vaild email address</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="phone">
+            <div class="">
+              <div class="country-code">
+                <img
+                  src="../../../assets/images/Saudi-Arabia-Flag-icon.png"
+                  alt=""
+                />
+                <span>+966</span>
+              </div>
+            </div>
+            <div class="">
+              <input
+                class="upnormalinputClass"
+                type="tel"
+                id="phone"
+                formControlName="phone"
+                placeholder="Enter your phone"
+                onfocus="this.placeholder = ''"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="!choosetype">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="password-container">
+            <input
+              class="upnormalinputClass"
+
+              [type]="showPasswordvar ? 'text' : 'password'"
+              id="Password"
+              formControlName="Password"
+              placeholder="Enter your Password"
+              onfocus="this.placeholder = ''"
+            />
+            <img src="" alt="">
+            <div class="errorclass" *ngIf="f.password?.invalid">Please enter a vaild email address</div>
+            <img class="styleimage" [src]="showPasswordvar?'../../../assets/images/view.png':'../../../assets/images/hide.png'" alt="" (click)="showPassword()"/>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="choosetype">
+      <div class="col-md-12">
+        <div class="form-group">
+          <label for="type">Business Type</label>
+          <input
+            class="inputclass"
+            type="text"
+            id="type"
+            formControlName="type"
+            onfocus="this.placeholder = ''"
+            placeholder="Enter your Business Type "
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="type-container" *ngIf="choosetype">
+      <!-- <label for="">Business Type</label> -->
+      <div
+        class="form-group"
+        *ngFor="let type of type"
+        (click)="chooseType(type.flag, type.id)"
+      >
+        <input
+          class="inputclass"
+          type="text"
+          id="type.id"
+          readonly
+          style="cursor: pointer"
+        />
+        <div class="input-content">
+          <img [src]="type.flag ? type.img2 : type.img" alt="" />
+          <div class="text">
+            {{ type.name }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row government-content" *ngIf="choosetype">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="type">Governorate</label>
+
+          <ng-select
+            class="selectedclass w-100"
+            formControlName="government"
+            [(ngModel)]="selectedGov"
+            placeholder="Select Governorate"
+          >
+            <ng-option *ngFor="let gov of governments">{{
+              gov.name
+            }}</ng-option>
+          </ng-select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="type">District</label>
+
+          <ng-select
+            class="selectedclass"
+            formControlName="District"
+            [(ngModel)]="selecteddisc"
+            placeholder="Select district"
+          >
+            <ng-option *ngFor="let dis of disticts" [value]="dis.id">{{
+              dis.name
+            }}</ng-option>
+          </ng-select>
+        </div>
+      </div>
+    </div>
+    <div class="row social-content" *ngIf="choosetype">
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="type">How did you know us?</label>
+
+          <ng-select
+            class="selectedclass"
+            formControlName="social"
+            [(ngModel)]="selectsoc"
+            placeholder="Select one"
+          >
+            <ng-option *ngFor="let gov of socialmedia"
+              ><img
+                style="height: 1rem; width: 1rem; margin-right: 1rem"
+                [src]="gov.icon"
+                alt=""
+              />{{ gov.name }}</ng-option
+            >
+          </ng-select>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="form-group">
+          <label for="">Are you currently using system ?</label>
+          <div class="row radio-content">
+            <div class="col-md-6 radio">
+              <input id="radio2" name="radio1" type="radio" />
+              <label for="radio1">Yes</label>
+            </div>
+            <div class="col-md-6 radio">
+              <input id="radio3" name="radio1" type="radio" />
+              <label for="radio2">No</label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row buttons-cont">
+      <div class="col-md-5 checkbox-container" *ngIf="!choosetype else anything">
+        <input type="checkbox" id="checkbox" />
+        <label for="checkbox">
+          Agree to the <a href="" class="colored-text">Privacy Policy</a> and
+          <a href="" class="colored-text">Terms & Conditions</a>
+        </label>
+      </div>
+      <ng-template #anything>
+        <div class="col-md-5"></div>
+      </ng-template>
+      <div class="col-md-7 next-btnn">
+
+        <button
+        *ngIf="!choosetype; else createbtnn"
+          class="btn-style"
+          type="submit"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          <span>NEXT</span
+          ><img src="../../../assets/images/Group 2.svg" alt="" />
+        </button>
+        <ng-template #createbtnn>
+          <button class="btn-style" type="button" (click)="submit()">
+            <span>CREATE ACCOUNT</span
+            ><img src="../../../assets/images/Group 2.svg" alt="" />
+          </button>
+        </ng-template>
+      </div>
+
+    </div>
+  </form>
+</div>

@@ -1,0 +1,17 @@
+<div class="left-side"  [ngStyle]="switchImage ? {
+  'background-image': 'url(' + firstImage + ')'
+}: {'background-image': 'url(' + secondImage + ')'}
+">
+<div class="layout" *ngIf="switchImage else textImage">
+
+</div>
+<ng-template #textImage>
+<div class="content">
+<img src="../../../assets/images/Group 22.svg" alt="">
+<div class="text">
+  <h4>Few clicks away from creating your business</h4>
+<p>Start your business in minutes. save time and money</p>
+</div>
+</div>
+</ng-template>
+</div>

@@ -1,0 +1,20 @@
+
+<div class="row choose">
+  <div class="col-md-4">
+    <app-bus-left-side [switchImage]="false"></app-bus-left-side>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-7 right-side">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <div class="alert-text">
+          Having troubles? <a href="" class="strong-text"><strong> Get Help</strong> </a>
+        </div>
+      </div>
+    </div>
+    <img  src="../../../assets/images/Group 15.svg"  (click)="goBack()"alt="">
+    <app-shared-text [text]="data"></app-shared-text>
+    <app-shared-form [choosetype]=true></app-shared-form>
+  </div>
+</div>

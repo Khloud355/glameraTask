@@ -1,0 +1,106 @@
+
+<div class="row create-business">
+  <div class="col-md-4">
+    <app-bus-left-side [switchImage]="true"></app-bus-left-side>
+  </div>
+  <div class="col-md-1"></div>
+  <div class="col-md-7 right-side">
+    <div class="row">
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <div class="alert-text">
+          Having troubles? <a href="" class="strong-text"><strong> Get Help</strong> </a>
+        </div>
+      </div>
+    </div>
+    <app-shared-text [text]="data"></app-shared-text>
+    <app-shared-form [choosetype]=false></app-shared-form>
+  </div>
+</div>
+<div class="founder-info">
+  <div class="desc">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad temporibus eos quos
+  </div>
+  <div class="info">
+    <span class="name">Khloud Rammah</span>
+    <span class="postion">Founder, Soliter Salon</span>
+  </div>
+  <div class="image">
+    <img src="../../../assets/images/Group 52.svg" alt="">
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="header">
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="model-body">
+        <img src="../../../assets/images/Group1.svg" alt="" />
+      </div>
+      <div class="model-text">
+        <h4 class="main-text">Verification Code</h4>
+        <p class="other-small-text">
+          Please enter the verification code sent to your phone number ** 34
+        </p>
+      </div>
+      <div class="model-inputs">
+        <input
+          class="inputclassmodel"
+          type="text"
+          id="first-name"
+          maxlength="1"
+          (keyup)="moveToNext($event)"
+        />
+        <input
+          class="inputclassmodel"
+          type="text"
+          id="first-name"
+          maxlength="1"
+          (keyup)="moveToNext($event)"
+        />
+        <input
+          class="inputclassmodel"
+          type="text"
+          id="first-name"
+          maxlength="1"
+          (keyup)="moveToNext($event)"
+        />
+        <input
+          class="inputclassmodel"
+          type="text"
+          id="first-name"
+          maxlength="1"
+          (keyup)="moveToNext($event)"
+        />
+      </div>
+
+      <p class="other-small-text">
+        The code will be sent again within
+        <span class="colored-number">59</span> seconds
+      </p>
+      <div class="btn-cont">
+        <button
+          class="btn-style"
+          type="button"
+          data-bs-dismiss="modal"
+          (click)="verfyCode()"
+        >
+          <span>VERIFY</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

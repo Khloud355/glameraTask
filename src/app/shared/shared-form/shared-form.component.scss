@@ -1,0 +1,177 @@
+@import "../../../styles.scss";
+::ng-deep ng-select {
+  position: relative;
+  &::placeholder{
+    color: red;
+  }
+  .ng-select-container{
+    border: none;
+  position: absolute !important;
+  top: 0  ;
+  left: 0 ;
+  right: 0 ;
+  bottom: 0 ;
+  padding: 0 .5rem;
+  .ng-placeholder {
+    color:$placeholder-color !important;
+    font-size: 10px !important;
+  }
+    position: absolute;
+&::after{
+  border-bottom: 0 !important;
+}
+  .ng-arrow-wrapper {
+    bottom: 15px !important;
+  }
+  .ng-clear-wrapper {
+    bottom: 15px !important;
+  }
+}
+}
+label {
+  color: #454c66;
+  font-size: 12px;
+  // font-weight: 600;
+  .colored-text {
+    color: $blue-color;
+    text-decoration: none;
+  }
+}
+
+.government-content{
+  margin-top: 5px;
+}
+.social-content{
+  margin-top: 10px;
+}
+.radio-content{
+  margin-top: 1.3rem;
+.radio{
+display: flex;
+align-items: center;
+// justify-content: center;
+gap: 10px;
+}
+}
+.inputclass {
+  @include inputFeild(5px, 50px, 4px, 1px, 100%, 1px, 10px);
+}
+.upnormalinputClass {
+  @include inputFeild(0px, 50px, 0, 0, 98%, 0px, 0px);
+}
+.selectedclass{
+  @include inputFeild(5px, 40px, 4px, 0px, 100%, 1px, 10px);
+}
+.my_class {
+  border: 1px solid #b4ace5;
+}
+.border-class {
+  border: 1px solid #d0d5de;
+}
+.phone {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  border: 1px solid #d0d5de;
+  align-items: end;
+  border-radius: 4px;
+  margin-top: 5px;
+  background-color: #fff;
+  gap: 10px;
+}
+.country-code {
+  gap: 3px;
+  justify-content: center;
+  text-align: center;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  height: 50px;
+  display: flex;
+  background: #635ca81a 0% 0% no-repeat padding-box;
+  align-items: center;
+  // margin-right: 10px;
+  img {
+    width: 17px;
+    height: 17px;
+  }
+  span {
+    color: #635ca8;
+    font-size: 11px;
+  }
+}
+.password-container {
+  width: 100%;
+  display: flex;
+  border: 1px solid #d0d5de;
+  border-radius: 4px;
+  margin-top: 5px;
+  padding: 0 10px;
+  background: #fff;
+  justify-content: center;
+  align-items: center;
+  img {
+    // padding: 0 4px;
+    height: 20px;
+  }
+}
+.buttons-cont {
+  margin-top: 3rem;
+  .checkbox-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+
+    input {
+      position: relative;
+      &:checked::before {
+        background-color: green;
+      }
+      &:focus {
+        background-color: green;
+      }
+    }
+    label {
+      color: #454c66;
+      font-size: 12px;
+      .colored-text {
+        color: $blue-color;
+      }
+    }
+  }
+  .next-btnn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 1rem;
+  }
+}
+.type-container {
+  margin-top: .5rem;
+  label {
+    color: $main-text-color;
+    // font-weight: 600;
+    font-size: 13px;
+  }
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  .form-group {
+    position: relative;
+    input {
+    }
+    .input-content {
+      position: absolute;
+      color: #000;
+      display: flex;
+      align-items: center;
+      top: 50%;
+      transform: translateY(-43%);
+      left: 5%;
+      justify-content: space-between;
+      .text {
+        color: #454c66;
+        margin-left: 0.5rem;
+        // font-weight: 600;
+        font-size: 13px;
+      }
+    }
+  }
+}

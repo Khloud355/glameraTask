@@ -1,0 +1,111 @@
+@import "../../../styles.scss";
+.alert-text {
+  opacity: 1;
+  display: flex;
+  margin-bottom: 2rem;
+  //
+  color: $small-text-color;
+  font-size: 13px;
+  justify-content: end;
+  .strong-text {
+    text-decoration: none;
+    color: #635ca8;
+    margin-left: 5px;
+  }
+}
+.right-side{
+  margin-top: 2rem;
+}
+.create-business {
+  height: 100vh;
+  position: relative;
+
+}
+.modal-dialog {
+  width: 24rem;
+}
+.modal-header {
+  border-bottom: unset;
+}
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  padding-bottom: 2rem;
+  .header{
+    display: flex;
+    margin: 1rem;
+    button{
+      font-size: 11px;
+    }
+  }
+  .colored-number {
+    color: #6ac7bb;
+  }
+  .model-body {
+    img {
+      height: 6rem;
+    }
+  }
+}
+.btn-cont {
+  display: flex;
+  justify-content: center;
+  button {
+    justify-content: center;
+    padding: .7rem 4rem;
+  }
+}
+.model-inputs {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+
+  padding: 1rem;
+  .inputclassmodel {
+    @include inputFeild(5px, 45px, 4px, 1px, 100%, 1px, 10px);
+    text-align: center;
+  }
+}
+
+.founder-info {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 35px 16px 60px 16px;
+
+  top: 67%;
+  width: 20rem;
+  padding: 2rem 1rem 1.5rem 1rem;
+  opacity: 1;
+  box-shadow: -2px 9px 6px -9px;
+  left: 15rem;
+  .desc {
+    color: #383838;
+    font-size: 12px;
+  }
+  .info {
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.5rem;
+    .name {
+      color: #383838;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .postion {
+      color: #383838;
+      font-size: 10px;
+      opacity: 0.5;
+    }
+  }
+  .image {
+    z-index: 1;
+    position: absolute;
+
+    bottom: 75%;
+    right: 88%;
+
+  }
+}
+
