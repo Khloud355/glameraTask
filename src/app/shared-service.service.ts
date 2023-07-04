@@ -5,6 +5,6 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class SharedServiceService {
-  firstpage: BehaviorSubject<any> = new BehaviorSubject(false);
+  // firstpage: BehaviorSubject<any> = new BehaviorSubject(false);
   constructor() { }
 }
