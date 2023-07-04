@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { SharedServiceService } from 'src/app/shared-service.service';
 
 @Component({
   selector: 'app-bus-left-side',
